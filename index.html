@@ -15,72 +15,107 @@
     <div class="container">
         <header>
             <div class="header-wrap">
-                <div class="logo"> <img src="assets/images/logo.png" alt="Merilin's Potion Logo" class="logoIMG"></div>
+                <div class="logo"><a href="#"><img src="assets/images/logo.png" alt="Merilin's Potion Logo" class="logoIMG"></a></div>
 
-                <div class="searchBox"><span class="minifier"></span> <input type="search" name="" id="" placeholder="Search our stock">
+                <div class="searchBox"><span class="minifier"></span> <input type="search" name="search_input" id="search_input" placeholder="Search our stock">
                 </div>
                 
-                <div class="cart"><a href="#">
-                    <div class="freeshipping">Free shipping
-                        <br>on orders over $50</div>
-                    <img class="cauldronIMG" src="assets/images/cauldron.png" alt="Caldron"><span class="bag">BAG: 
-                    </span><span class="qty">1</span></a>
+                <div class="delivery-area">
+                    <div class="freeshipping"><a href="#freeshpn">
+                    Free shipping
+                    <br>on orders over $50
+                    </a></div>
+                    <div class="cart">
+                        <a href="#cartIndex">
+                        <img class="cauldronIMG" src="assets/images/cauldron.png" alt="Caldron"><h1 class="bag">BAG: 
+                        </h1><h1 class="bag qty">1</h1></a>
+                    </div>
                 </div>
-            </div>
+
+            </div><!--header-wrap-->
         </header>
 
         <nav class="store">
-            <div class="navigation-items">
+            <div class="menu-items">
                 <ul>
-                    <li>Potions
+                    <li class="nav-link"><a href="#">Potions</a>
                         <ul class="sub-nav">
                             <li>More</li>
                         </ul>
                     </li>
-                    <li>Ingredients</li>
-                    <li>Books</li>
-                    <li>Supplies</li>
-                    <li>Charms</li>
-                    <li>Clearance!</li>
-                    
+                    <li class="nav-link"><a href="#">Ingredients</a></li>
+                    <li class="nav-link"><a href="#">Books</a></li>
+                    <li class="nav-link"><a href="#">Supplies</a></li>
+                    <li class="nav-link"><a href="#">Charms</a></li>
+                    <li class="nav-link"><a href="#">Clearance!</a></li>
+                    <p class="userAction"><a href="#">Sign In</a>  <span style="color:#663366; font-style:italic;">or</span><a href="#">Sign Up</a></p>
                 </ul>
             </div>
         </nav>
         
         <main>
-            <div class="dataLayer">
-                Fill
+            <div id="dataLayer">
+                <div id="potions">
+                    <h1>Potions</h1>
+                    <!--Load Potions JSON-->
+                </div>
+
+                    
+                <div id="lightbox" onclick="closeLiteBox();">
+                    <div id="lightbox-center" onclick="event.stopPropagation();">
+                        <div id="division">
+                            <!-- receive info -->
+                        </div>
+
+                            <!--Load Potions JSON-->
+
+                        <div id="close-box" onclick="closeLiteBox();">
+                            <a href="#" onclick="closeLiteBox();">
+                                <div class="x1"></div>
+                                <div class="x2"></div>
+                            </a>
+                        </div>
+                    </div>    
+                </div>
+                
             </div>
         </main>
-        <footer>
-            <div>
-                <ul>
-                    <li>Company Returns</li>
-                    <li>Contact Us</li>
-                    <li>Shipping</li>
-                </ul>
 
-                <ul>
-                    <li>F</li>
-                    <li>T</li>
-                    <li>P</li>
-                    <li>T</li>
-                    <li>G+</li>
-                </ul>
-                <small>
-                    2015 Merlin's Potions. All Rights Reserved
-                </small>
-            </div>
-            <div class="newsletter">
-                <div class="newsletter-wrapper">
-                    <p>Sign up for our Newsletter</p>
-                    <p>Sign up for our newsletter &amp get exclusive discounts</p>
-                    <form action="email" aria-placeholder="Enter your e-mail"></form><button type="submit">Submit</button>
+        <footer>
+            <div class="footer-wrapper">
+                <div class="footer-left">
+                    <ul class="corp">
+                        <li><a href="">Company Returns</a></li>
+                        <li><a href="">Contact Us</a></li>
+                        <li><a href="">Shipping</a></li>
+                        <li><a href="">Returns</a></li>
+                        <li><a href="">Careers</a></li>
+                    </ul>
+
+                    <ul class="social">
+                        <li><a href=""><i class="fab fa-facebook"></i></a></li>
+                        <li><a href=""><i class="fab fa-twitter-square"></i></a></li>
+                        <li><a href=""><i class="fab fa-pinterest-square"></i></a></li>
+                        <li><a href=""><i class="fab fa-tumblr-square"></i></a></li>
+                        <li><a href=""><i class="fab fa-google-plus-square"></i></a></li>
+                    </ul>
+                    <small>
+                        &copy; 2018 Merlin's Potions. All Rights Reserved
+                    </small>
+                </div>
+                <div class="newsletter-right">
+                    <div class="newsletter">
+                        <p>Sign up for our Newsletter</p>
+                        <p>Sign up for our newsletter &amp; get exclusive discounts</p>
+                        <input type="email" name="" id="" placeholder="Enter your email">
+                        <button type="submit">Submit</button>
+                    </div>
                 </div>
             </div>
         </footer>
+
     </div>
 </div>
-<script async src="potions.json"></script>
+<script async src="assets/product_api.js"></script>
 </body>
 </html>
