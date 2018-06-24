@@ -1,121 +1,256 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Oswald" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans%7COswald" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
         crossorigin="anonymous">
     <link rel="stylesheet" href="style.css" type="text/css">
     <title>Merilin's Potions - Fine potions since 1026</title>
 </head>
+
 <body>
-<div class="wrapper">
-    <div class="container">
-        <header>
-            <div class="header-wrap">
-                <div class="logo"><a href="#"><img src="assets/images/logo.png" alt="Merilin's Potion Logo" class="logoIMG"></a></div>
-
-                <div class="searchBox"><span class="minifier"></span> <input type="search" name="search_input" id="search_input" placeholder="Search our stock">
-                </div>
-                
-                <div class="delivery-area">
-                    <div class="freeshipping"><a href="#freeshpn">
-                    Free shipping
-                    <br>on orders over $50
-                    </a></div>
-                    <div class="cart">
-                        <a href="#cartIndex">
-                        <img class="cauldronIMG" src="assets/images/cauldron.png" alt="Caldron"><h1 class="bag">BAG: 
-                        </h1><h1 class="bag qty">1</h1></a>
+    <div class="wrapper">
+        <div class="container">
+            <header>
+                <div class="header-wrap">
+                    <div class="logo">
+                        <a href="index.html">
+                            <img class="logo-img" src="assets/images/logo.png" alt="Merilin's Potion Logo" class="logoIMG">
+                        </a>
                     </div>
-                </div>
 
-            </div><!--header-wrap-->
-        </header>
+                    <i class="fas fa-times close-mobile-menu" onclick="closeMobileMenu();"></i>
+                    <div class="search-box">
+                        <form action="">
+                            <i class="fas fa-search minifier"></i>
+                            <input class="search-input" type="search" name="search_input" placeholder="Search our stock">
+                        </form>
+                    </div>
 
-        <nav class="store">
-            <div class="menu-items">
-                <ul>
-                    <li class="nav-link"><a href="#">Potions</a>
-                        <ul class="sub-nav">
-                            <li>More</li>
-                        </ul>
-                    </li>
-                    <li class="nav-link"><a href="#">Ingredients</a></li>
-                    <li class="nav-link"><a href="#">Books</a></li>
-                    <li class="nav-link"><a href="#">Supplies</a></li>
-                    <li class="nav-link"><a href="#">Charms</a></li>
-                    <li class="nav-link"><a href="#">Clearance!</a></li>
-                    <p class="userAction"><a href="#">Sign In</a>  <span style="color:#663366; font-style:italic;">or</span><a href="#">Sign Up</a></p>
-                </ul>
-            </div>
-        </nav>
-        
-        <main>
-            <div id="dataLayer">
-                <div id="potions">
-                    <h1>Potions</h1>
-                    <!--Load Potions JSON-->
-                </div>
-
-                    
-                <div id="lightbox" onclick="closeLiteBox();">
-                    <div id="lightbox-center" onclick="event.stopPropagation();">
-                        <div id="division">
-                            <!-- receive info -->
-                        </div>
-
-                            <!--Load Potions JSON-->
-
-                        <div id="close-box" onclick="closeLiteBox();">
-                            <a href="#" onclick="closeLiteBox();">
-                                <div class="x1"></div>
-                                <div class="x2"></div>
+                    <div class="delivery-area">
+                        <div class="freeshipping">
+                            <a href="#freeshpn">
+                                Free shipping on orders over $50
                             </a>
                         </div>
-                    </div>    
-                </div>
-                
-            </div>
-        </main>
+                        <div class="cart">
+                            <a href="#cartIndex">
+                                <div class="bag-group">
+                                    <img class="cauldronIMG" src="assets/images/cauldron.png" alt="Caldron">
+                                    <h1 class="bag">BAG: </h1>
+                                    <h1 class="bag qty"> 1</h1>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
 
-        <footer>
-            <div class="footer-wrapper">
-                <div class="footer-left">
-                    <ul class="corp">
-                        <li><a href="">Company Returns</a></li>
-                        <li><a href="">Contact Us</a></li>
-                        <li><a href="">Shipping</a></li>
-                        <li><a href="">Returns</a></li>
-                        <li><a href="">Careers</a></li>
-                    </ul>
-
-                    <ul class="social">
-                        <li><a href=""><i class="fab fa-facebook"></i></a></li>
-                        <li><a href=""><i class="fab fa-twitter-square"></i></a></li>
-                        <li><a href=""><i class="fab fa-pinterest-square"></i></a></li>
-                        <li><a href=""><i class="fab fa-tumblr-square"></i></a></li>
-                        <li><a href=""><i class="fab fa-google-plus-square"></i></a></li>
-                    </ul>
-                    <small>
-                        &copy; 2018 Merlin's Potions. All Rights Reserved
-                    </small>
                 </div>
-                <div class="newsletter-right">
-                    <div class="newsletter">
-                        <p>Sign up for our Newsletter</p>
-                        <p>Sign up for our newsletter &amp; get exclusive discounts</p>
-                        <input type="email" name="" id="" placeholder="Enter your email">
-                        <button type="submit">Submit</button>
+                <!--header-wrap-->
+            </header>
+
+
+            <i class="fas fa-bars fa-2x open-mobile-menu" onclick="openMobileMenu()"></i>
+            <nav class="bar">
+                <div class="menu-group">
+                    <ul class="menu">
+                        <li class="menu-item">
+                            <a href="#">Potions
+                                <i class="fas fa-caret-down"></i>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-item">
+                                    <a href="#">Potions1</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="#">Potions1</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="#">Potions1</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="#">Potions1</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="#">Potions1</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#">Ingredients
+                                <i class="fas fa-caret-down"></i>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-item">
+                                    <a href="#">Ingredients1</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="#">Ingredients1</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="#">Ingredients1</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#">Books
+                                <i class="fas fa-caret-down"></i>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-item">
+                                    <a href="#">Books1</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="#">Books1</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="#">Books1</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#">Supplies
+                                <i class="fas fa-caret-down"></i>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-item">
+                                    <a href="#">Supplies1</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="#">Supplies1</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="#">Supplies1</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#">Charms
+                                <i class="fas fa-caret-down"></i>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-item">
+                                    <a href="#">Charms</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="#">Charms</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="#">Charms</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#">Clearance!</a>
+                        </li>
+                    </ul>
+                    <div class="user-sign-in-up">
+                        <a href="#">Sign In </a>
+                        <span class="or"> or </span>
+                        <a href="#"> Sign Up</a>
                     </div>
                 </div>
-            </div>
-        </footer>
+                <!-- .menu-group -->
+            </nav>
 
+            <main>
+                <div id="dataLayer">
+                    <h1>Potions</h1>
+                    <div id="potions">
+                        <!--Load Potions from JSON-->
+                    </div>
+
+
+                    <div id="lightbox" onclick="closeLiteBox();">
+                        <div id="lightbox-center" onclick="event.stopPropagation();">
+                            <div id="division">
+                                <!-- receive info -->
+                            </div>
+                            <!--Load Potions JSON-->
+                            <div id="close-box" onclick="closeLiteBox();">
+                                <a href="#" onclick="closeLiteBox();">
+                                    <i class="fal fa-times"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </main>
+
+            <footer>
+                <div class="footer-wrapper">
+                    <div class="footer-right">
+                        <div class="newsletter">
+                            <p>Sign up for our Newsletter</p>
+                            <p>Sign up for our newsletter &amp; get exclusive discounts</p>
+                            <form action="">
+                                <input type="email" name="user_email" id="email" placeholder="Enter your email">
+                                <button type="submit">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="footer-left">
+                        <ul class="company">
+                            <li>
+                                <a href="#">Company</a>
+                            </li>
+                            <li>
+                                <a href="#">Contact Us</a>
+                            </li>
+                            <li>
+                                <a href="#">Shipping</a>
+                            </li>
+                            <li>
+                                <a href="#">Returns</a>
+                            </li>
+                            <li>
+                                <a href="#">Careers</a>
+                            </li>
+                        </ul>
+                        <ul class="social">
+                            <li>
+                                <a href="#">
+                                    <i class="fab fa-facebook"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fab fa-twitter-square"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fab fa-pinterest-square"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fab fa-tumblr-square"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fab fa-google-plus-square"></i>
+                                </a>
+                            </li>
+                        </ul>
+
+                        <small>
+                            &copy; 2018 Merlin's Potions. All Rights Reserved
+                        </small>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </footer>
+
+        </div>
     </div>
-</div>
-<script async src="assets/product_api.js"></script>
+    <!--wrapper-->
+    <script async src="assets/product_api.js"></script>
 </body>
+
 </html>

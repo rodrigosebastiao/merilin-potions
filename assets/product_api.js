@@ -3,6 +3,7 @@
 var potionsFile = 'assets/potions.json';
 var xhr = new XMLHttpRequest();
 
+//check for async loading
 xhr.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
         var myArr = '';
@@ -13,7 +14,7 @@ xhr.onreadystatechange = function () {
 
 xhr.open("GET", potionsFile);
 xhr.send();
-
+//variables for creation of div+img+txt content
 var potionsBody = document.getElementById("potions");
 var lightbox = document.getElementById("lightbox");
 var division = document.getElementById("division");
@@ -31,17 +32,16 @@ var effect;
 var ingredients;
 var button;
 
+//receive async data and create div + contents
 function getData(arr) {
     /*for styles see css*/
     for(i in arr.potions) {//create-append images and text
         div = document.createElement("DIV");
-        div.className = "potionsItem";
+        div.className = "potions-item";
         images = document.createElement("IMG");
         images.src = "assets/products/" + arr.potions[i].image; //set srcs
-        images.className = "potionsImg"; //set class
-        images.width = "210"; //safe pre-size
-        images.height = "210"; //safe pre-size
-        images = images.src.setAttribute("href", "#");
+        images.className = "potions-img"; //set class
+        images.href = "href", "#";
         div.appendChild(images);
         product = document.createElement("H3");
             pdt_txt = document.createTextNode(arr.potions[i].name + " - ");
@@ -87,3 +87,44 @@ function openLiteBox(arr){
 function closeLiteBox(){
     lightbox.style.display = "none";
 }
+
+
+/*MOBILE MENU OPEN CLOSE*/
+
+var navBar = document.getElementsByClassName("bar")[0];
+var search = document.getElementsByClassName("search-box")[0];
+var openMobileBtn = document.getElementsByClassName("open-mobile-menu")[0];
+var closeMobileBtn = document.getElementsByClassName("close-mobile-menu")[0];
+
+
+function openMobileMenu() {
+    navBar.style.display = "block";
+    search.style.display = "block";
+    closeMobileBtn.style.display = "block";
+    openMobileBtn.style.display = "none";
+}
+
+function closeMobileMenu() {
+    navBar.style.display = "none";
+    search.style.display = "none";
+    closeMobileBtn.style.display = "none";
+    openMobileBtn.style.display = "block";
+}
+
+/* Reset or clear to previus layout state */
+var media = window.matchMedia("(min-width: 630px)");
+
+function mediaClearHandler(event){
+    if(event.matches){//if > 630px
+        navBar.style.display = "block";
+        search.style.display = "block";
+        openMobileBtn.style.display = "none";
+        closeMobileBtn.style.display = "none";
+    } else {//if < 630px
+        openMobileBtn.style.display = "block";
+        navBar.style.display = "none";
+        search.style.display = "none";
+    }
+}
+
+media.addListener(mediaClearHandler);
