@@ -160,21 +160,18 @@
                 <div id="dataLayer">
                     <h1>Potions</h1>
                     <div id="potions">
-                        <!--Load Potions from JSON-->
+                        <!--Load Potions JSON-->
                     </div>
 
 
                     <div id="lightbox" onclick="closeLiteBox();">
-                        <div id="lightbox-center" onclick="event.stopPropagation();">
-                            <div id="division">
-                                <!-- receive info -->
+                        <div id="lightbox-content" onclick="event.stopPropagation();">
+                            <div id="left-lite-box">
+                                <img id="img-lite-box" src="" alt="">
                             </div>
-                            <!--Load Potions JSON-->
-                            <div id="close-box" onclick="closeLiteBox();">
-                                <a href="#" onclick="closeLiteBox();">
-                                    <i class="fal fa-times"></i>
-                                </a>
-                            </div>
+                            <div id="right-lite-box"></div>
+                            <!--Load Potions JSON in Lightbox-->
+                        <i class="fa fa-times close-lite-box" onclick="closeLiteBox();"></i>
                         </div>
                     </div>
 

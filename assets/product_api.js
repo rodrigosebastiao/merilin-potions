@@ -14,74 +14,62 @@ xhr.onreadystatechange = function () {
 
 xhr.open("GET", potionsFile);
 xhr.send();
-//variables for creation of div+img+txt content
-var potionsBody = document.getElementById("potions");
-var lightbox = document.getElementById("lightbox");
-var division = document.getElementById("division");
-var closeBox = document.getElementById("close-box");
-var out = '';
-var outImg = "";
-var div;
-var images;
-var product;
-var pdt_txt;
-var prc_txt;
-var price;
-var useEffect;
-var effect;
-var ingredients;
-var button;
 
-//receive async data and create div + contents
+
+//receive async data and create div + contents in page
 function getData(arr) {
-    /*for styles see css*/
+    var potionsBody = document.getElementById("potions");
+
     for(i in arr.potions) {//create-append images and text
-        div = document.createElement("DIV");
+    var div = document.createElement("DIV");
         div.className = "potions-item";
-        images = document.createElement("IMG");
+    var images = document.createElement("IMG");
         images.src = "assets/products/" + arr.potions[i].image; //set srcs
         images.className = "potions-img"; //set class
         images.href = "href", "#";
         div.appendChild(images);
-        product = document.createElement("H3");
-            pdt_txt = document.createTextNode(arr.potions[i].name + " - ");
-        price = document.createElement("SPAN");
-            prc_txt = document.createTextNode("$ "+arr.potions[i].price);
-        price.appendChild(prc_txt);
-        product.appendChild(pdt_txt);
-        product.appendChild(price);
-        product.className = "product";
-        div.appendChild(product);
-        potionsBody.appendChild(div);//final append
+    var h3_name = document.createElement("H3");
+        h3_name.className = "product-name";
+    var product_name = document.createTextNode(arr.potions[i].name);
+        h3_name.appendChild(product_name);
         
-        /*Call light box onclick*/
-        images.onclick = function(){
-            openLiteBox(arr);
-        }
-     }
-        /*for styles see css*/         
+        span_price = document.createElement("span");
+        span_price.className = "price";
+    var product_price = document.createTextNode("$ "+arr.potions[i].price);
+        span_price.appendChild(product_price);
+        div.appendChild(h3_name);
+        div.appendChild(span_price);
+        potionsBody.appendChild(div);//final append
+
+        /*Call light box and pass values*/
+        var p_effect = document.createElement("P");
+        var useEffect = document.createTextNode(arr.potions[i].effect);
+        var ingredients = (document.createTextNode( (arr.potions[i].ingredients).join("<br>") ));
+        p_effect.appendChild(useEffect);
+
+        //Open Light box with clicked position
+        openLiteBox(images, product_name, useEffect, ingredients, product_price);
+        
+    }/*Styles are in css*/
 }
 
-function openLiteBox(arr){
-     for (i in arr.potions) {//create Lightbox and append images and text
-        /*LIGHTBOX*/
-        images = document.createElement("IMG");
-        images.width = "400";
-        images.height = "400";
-        division.appendChild(images);
-        division.appendChild(pdt_txt);
-        useEffect = document.createTextNode("Use/Effect:");
-        effect = document.createTextNode(arr.potions[i].effect);
-        division.appendChild(useEffect);
-        ingredients = document.createTextNode("Ingredients:");
-        division.appendChild(ingredients);
-        division.appendChild(price);
-        button = document.createElement("BUTTON");
-        button.createTextNode = "ADD TO CART";
-        division.appendChild(button);
-        lightbox.appendChild(division);
-    }
-    lightbox.style.display = "block";
+function openLiteBox(images, product_name, useEffect, ingredients, product_price) {
+    var imgLiteBox = document.getElementById("img-lite-box");
+    var lightbox = document.getElementById("lightbox");
+    var productInfos = document.getElementById("right-lite-box");
+
+        images.onclick = function() {
+
+            lightbox.style.display = "block";
+            imgLiteBox.src = this.src;
+      
+            productInfos.innerHTML = 
+                "<h2 class='product-name-lt'>" + product_name.textContent + "</h2>" +
+                "<h2>Use/Effect: </h2>" + useEffect.textContent + "<br>" +
+                "<h2>Ingredients: </h2>" + ingredients.textContent +
+                "<h2 class='price-tag'>Price: </h2>" + "<h2 class='price-lt'>" + product_price.textContent + "</h2>"+
+                "<button class='add-to-cart'>Add to Cart</button>";
+        }
 }
 
 function closeLiteBox(){
@@ -89,7 +77,7 @@ function closeLiteBox(){
 }
 
 
-/*MOBILE MENU OPEN CLOSE*/
+/*MOBILE MENU OPEN-CLOSE-RESET*/
 
 var navBar = document.getElementsByClassName("bar")[0];
 var search = document.getElementsByClassName("search-box")[0];

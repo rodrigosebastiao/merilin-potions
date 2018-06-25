@@ -3,10 +3,6 @@ body, html{
     height: 100%;
 }
 
-.container {
-    height: auto;
-}
-
 .header-wrap,
 .menu-group,
 .bar,
@@ -128,14 +124,11 @@ nav.bar{
     width: 100%;
     height: 68px;
     margin: 0;
+    overflow: hidden;
 }
 
 .fa-caret-down{/*arrows down*/
    margin-left: 10px;
-}
-
-nav.bar{
-    overflow: hidden;
 }
 
 ul.menu{
@@ -199,9 +192,6 @@ ul.submenu{
 /***********
 **JSON API**
 ************/
-main{
-    /* min-height: 800px; */
-}
 
 #potions{
     display: flex;
@@ -214,49 +204,109 @@ main{
 }
 
 .potions-item{
-    cursor: pointer;
     flex: 6%;
     margin: 40px 4%;
     text-align: center;
 }
 
-.potions-item h1{
-    width: 100%;    
+.potions-item img {
+    cursor: pointer;
 }
 
-.product span{/*enhance price color - orange*/
+.product-name {
+    display: inline-block;
+}
+
+.product-name::after {
+    content: " - ";
+}
+
+.price{
+    /*enhance price color - orange*/
+    display: inline-block;
     color: #D73A1E;
+    font-weight: normal;
 }
 
+/********************
+**Light BOX - MODAL**
+*********************/
 #lightbox {
     display: none;
     position: fixed;
     left: 0;
     top: 0;
-    background: rgba(0,0,0,0.7);
+    background: rgba(0, 0, 0, 0.7);
+    font-family: "Open Sans";
     width: 100%;
     height: 100%;
 }
 
-#lightbox-center{
-    position: absolute;
-    width: 712px;
-    height: 522px;
+#lightbox-content {
+    position: relative;
+    top: 70px;
+    max-width: 700px;
+    min-width: 500px;
+    width: 60%;
+    height: 500px;
     background: white;
-    top: 25%;
-    left: 25%;
+    margin: 0 auto;
+    padding-top: 50px;
     z-index: 10;
 }
 
-#lightbox-center #close-box{/*close button*/
+.close-lite-box {
+    /*close button*/
+    cursor: pointer;
     position: absolute;
-    top: 0px;
+    top: 15px;
     right: 15px;
+    font-size: 18px;
+    color: #555;
+    transform: scale(1, 1.7);
 }
 
-#division{
-    width: 300px;
-    height: 400px;
+#left-lite-box,
+#right-lite-box {
+    float: left;
+    font-size: 14px;
+}
+
+    #img-lite-box{
+        width: 100%;
+        height: auto;
+    }
+
+#left-lite-box {
+    width: 55%;
+}
+
+#right-lite-box {
+    width: 45%;
+}
+
+.price-tag {
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.price-lt {
+    /*enhance price color - orange*/
+    color: #D73A1E;
+    font-weight: bold;
+    margin-top: 0;
+}
+
+.add-to-cart {
+    cursor: pointer;
+    border: 0;
+    border-radius: 5px;
+    color: #FFF;
+    background: #d73a1e;
+    width: 138px;
+    height: 38px;
+    font-size: 16px;
+    text-transform: uppercase;
 }
 
 /***********
@@ -295,12 +345,10 @@ footer{
     padding-right: 30px;
 }
 
-
 .company li a{
     text-decoration: none;
     color: #D73A1E;
 }
-
 
 .social{
     width: 100%;
@@ -383,7 +431,15 @@ small {
         margin: 0 2%;
         transition: 0.5s;/*responsive animation*/
     }
+
+    .footer-left,
+    .footer-right{
+        float: none;
+        margin: 0 auto;
+    }
+
 }
+
 
 @media screen and (max-width: 930px) {
     .header-wrap,
@@ -396,9 +452,8 @@ small {
         transition: 0.5s;/*responsive animation*/
     }
     .search-box {
-        width: 30%;
+        width: 27%;
         margin: 0 2%;
-        width: 240px;
         transition: 0.5s;/*responsive animation*/
     }
 
@@ -410,6 +465,12 @@ small {
     .search-box ::placeholder {
             font-size: 12px;
     }
+
+    .footer-right,
+    .footer-left{
+         float: none;       
+    }
+
 }
 
 @media screen and (max-width: 770px) {
@@ -422,9 +483,10 @@ small {
         margin: 0 auto;
         transition: 0.5s;/*responsive animation*/
     }
+
     .search-box {
-        width: 20%;
-        margin: 0 4%;
+        width: 30%;
+        margin: 0 1%;
         transition: 0.5s;/*responsive animation*/
     }
 
@@ -432,9 +494,14 @@ small {
         width: 50%;
     }
 
+    .freeshipping{
+        display: none;
+    }
+
     .footer-left,
     .footer-right {
         float: none;
+        margin: 0 auto;
     }
 }
 
@@ -488,9 +555,14 @@ small {
         display: none;
     }
 
+    .container{
+        position: relative;/*for 100% height in .menu-group*/
+    }
+
     .menu-group{
         position: absolute;
         top: 0;
+        bottom: 0;
         left: 0;
         background: #fff;
         width: 100%;
