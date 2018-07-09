@@ -1,5 +1,5 @@
 # Desafio de Layout
 
-O desafio era criar o layout abaixo para uma entrevista, mas não terminei no tempo demarcado. Finalizei o layout para exercitar
+Desafio de layout PSD para HTML
 
 ![Merlins Potions Layout](assets/potions-layout.png)
